@@ -14,7 +14,7 @@ use Mix.Config
 config :legably, Legably.Endpoint,
   http: [port: {:system, "PORT"}],
   url: [scheme: "https", host: "aqueous-woodland-63314.herokuapp.com", port: 443],
-  cache_static_manifest: "priv/static/manifest.json"
+  cache_static_manifest: "priv/static/manifest.json",
   force_ssl: [rewrite_on: [:x_forwarded_proto]],
   secret_key_base: System.get_env("SECRET_KEY_BASE")
 
