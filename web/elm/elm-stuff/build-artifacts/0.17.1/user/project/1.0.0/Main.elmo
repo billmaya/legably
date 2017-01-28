@@ -1,0 +1,298 @@
+var _user$project$Main$splashContainer = A2(
+	_elm_lang$html$Html$div,
+	_elm_lang$core$Native_List.fromArray(
+		[
+			_elm_lang$html$Html_Attributes$class('splash-container')
+		]),
+	_elm_lang$core$Native_List.fromArray(
+		[
+			A2(
+			_elm_lang$html$Html$div,
+			_elm_lang$core$Native_List.fromArray(
+				[
+					_elm_lang$html$Html_Attributes$class('splash')
+				]),
+			_elm_lang$core$Native_List.fromArray(
+				[
+					A2(
+					_elm_lang$html$Html$h1,
+					_elm_lang$core$Native_List.fromArray(
+						[
+							_elm_lang$html$Html_Attributes$class('splash-head')
+						]),
+					_elm_lang$core$Native_List.fromArray(
+						[
+							_elm_lang$html$Html$text('Lorem ipsum dolor sit amet, consectetur adipiscing.')
+						])),
+					A2(
+					_elm_lang$html$Html$p,
+					_elm_lang$core$Native_List.fromArray(
+						[
+							_elm_lang$html$Html_Attributes$class('splash-subhead')
+						]),
+					_elm_lang$core$Native_List.fromArray(
+						[
+							_elm_lang$html$Html$text('Pellentesque volutpat blandit finibus. Donec lacinia rhoncus tortor ac congue. Nulla nunc quam, ultricies sed.')
+						]))
+				]))
+		]));
+var _user$project$Main$header = A2(
+	_elm_lang$html$Html$div,
+	_elm_lang$core$Native_List.fromArray(
+		[
+			_elm_lang$html$Html_Attributes$class('header')
+		]),
+	_elm_lang$core$Native_List.fromArray(
+		[
+			A2(
+			_elm_lang$html$Html$div,
+			_elm_lang$core$Native_List.fromArray(
+				[
+					_elm_lang$html$Html_Attributes$class('home-menu pure-menu pure-menu-horizontal pure-menu-fixed')
+				]),
+			_elm_lang$core$Native_List.fromArray(
+				[
+					A2(
+					_elm_lang$html$Html$a,
+					_elm_lang$core$Native_List.fromArray(
+						[
+							_elm_lang$html$Html_Attributes$class('pure-menu-heading'),
+							_elm_lang$html$Html_Attributes$href('')
+						]),
+					_elm_lang$core$Native_List.fromArray(
+						[
+							_elm_lang$html$Html$text('Legably')
+						])),
+					A2(
+					_elm_lang$html$Html$ul,
+					_elm_lang$core$Native_List.fromArray(
+						[
+							_elm_lang$html$Html_Attributes$class('pure-menu-list')
+						]),
+					_elm_lang$core$Native_List.fromArray(
+						[
+							A2(
+							_elm_lang$html$Html$li,
+							_elm_lang$core$Native_List.fromArray(
+								[
+									_elm_lang$html$Html_Attributes$class('pure-menu-item')
+								]),
+							_elm_lang$core$Native_List.fromArray(
+								[
+									A2(
+									_elm_lang$html$Html$a,
+									_elm_lang$core$Native_List.fromArray(
+										[
+											_elm_lang$html$Html_Attributes$class('pure-menu-link'),
+											_elm_lang$html$Html_Attributes$href('#')
+										]),
+									_elm_lang$core$Native_List.fromArray(
+										[
+											_elm_lang$html$Html$text('About')
+										]))
+								])),
+							A2(
+							_elm_lang$html$Html$li,
+							_elm_lang$core$Native_List.fromArray(
+								[
+									_elm_lang$html$Html_Attributes$class('pure-menu-item')
+								]),
+							_elm_lang$core$Native_List.fromArray(
+								[
+									A2(
+									_elm_lang$html$Html$a,
+									_elm_lang$core$Native_List.fromArray(
+										[
+											_elm_lang$html$Html_Attributes$class('pure-menu-link'),
+											_elm_lang$html$Html_Attributes$href('#')
+										]),
+									_elm_lang$core$Native_List.fromArray(
+										[
+											_elm_lang$html$Html$text('Log In')
+										]))
+								]))
+						]))
+				]))
+		]));
+var _user$project$Main$update = F2(
+	function (msg, model) {
+		var _p0 = msg;
+		switch (_p0.ctor) {
+			case 'ChangePage':
+				return _elm_lang$core$Native_Utils.update(
+					model,
+					{page: _p0._0});
+			case 'LawyerSignUpMsg':
+				return _elm_lang$core$Native_Utils.update(
+					model,
+					{
+						lawyerSignUp: A2(_user$project$LawyerSignUp$update, _p0._0, model.lawyerSignUp)
+					});
+			default:
+				return _elm_lang$core$Native_Utils.update(
+					model,
+					{
+						firmSignUp: A2(_user$project$FirmSignUp$update, _p0._0, model.firmSignUp)
+					});
+		}
+	});
+var _user$project$Main$Model = F3(
+	function (a, b, c) {
+		return {page: a, lawyerSignUp: b, firmSignUp: c};
+	});
+var _user$project$Main$FirmSignUpPage = {ctor: 'FirmSignUpPage'};
+var _user$project$Main$LawyerSignUpPage = {ctor: 'LawyerSignUpPage'};
+var _user$project$Main$initModel = {page: _user$project$Main$LawyerSignUpPage, lawyerSignUp: _user$project$LawyerSignUp$initModel, firmSignUp: _user$project$FirmSignUp$initModel};
+var _user$project$Main$FirmSignUpMsg = function (a) {
+	return {ctor: 'FirmSignUpMsg', _0: a};
+};
+var _user$project$Main$LawyerSignUpMsg = function (a) {
+	return {ctor: 'LawyerSignUpMsg', _0: a};
+};
+var _user$project$Main$ChangePage = function (a) {
+	return {ctor: 'ChangePage', _0: a};
+};
+var _user$project$Main$contentWrapper = function (model) {
+	var page = function () {
+		var _p1 = model.page;
+		if (_p1.ctor === 'LawyerSignUpPage') {
+			return A2(
+				_elm_lang$html$Html_App$map,
+				_user$project$Main$LawyerSignUpMsg,
+				_user$project$LawyerSignUp$view(model.lawyerSignUp));
+		} else {
+			return A2(
+				_elm_lang$html$Html_App$map,
+				_user$project$Main$FirmSignUpMsg,
+				_user$project$FirmSignUp$view(model.firmSignUp));
+		}
+	}();
+	return A2(
+		_elm_lang$html$Html$div,
+		_elm_lang$core$Native_List.fromArray(
+			[
+				_elm_lang$html$Html_Attributes$class('content-wrapper')
+			]),
+		_elm_lang$core$Native_List.fromArray(
+			[
+				A2(
+				_elm_lang$html$Html$div,
+				_elm_lang$core$Native_List.fromArray(
+					[
+						_elm_lang$html$Html_Attributes$class('content')
+					]),
+				_elm_lang$core$Native_List.fromArray(
+					[
+						A2(
+						_elm_lang$html$Html$div,
+						_elm_lang$core$Native_List.fromArray(
+							[
+								_elm_lang$html$Html_Attributes$style(
+								_elm_lang$core$Native_List.fromArray(
+									[
+										{ctor: '_Tuple2', _0: 'text-align', _1: 'center'}
+									]))
+							]),
+						_elm_lang$core$Native_List.fromArray(
+							[
+								A2(
+								_elm_lang$html$Html$a,
+								_elm_lang$core$Native_List.fromArray(
+									[
+										_elm_lang$html$Html_Attributes$href('#tabs'),
+										_elm_lang$html$Html_Events$onClick(
+										_user$project$Main$ChangePage(_user$project$Main$LawyerSignUpPage)),
+										_elm_lang$html$Html_Attributes$class('pure-button')
+									]),
+								_elm_lang$core$Native_List.fromArray(
+									[
+										A2(
+										_elm_lang$html$Html$i,
+										_elm_lang$core$Native_List.fromArray(
+											[
+												_elm_lang$html$Html_Attributes$class('fa fa-user')
+											]),
+										_elm_lang$core$Native_List.fromArray(
+											[])),
+										_elm_lang$html$Html$text(' Lawyer Sign Up')
+									])),
+								A2(
+								_elm_lang$html$Html$span,
+								_elm_lang$core$Native_List.fromArray(
+									[]),
+								_elm_lang$core$Native_List.fromArray(
+									[
+										_elm_lang$html$Html$text('   ')
+									])),
+								A2(
+								_elm_lang$html$Html$a,
+								_elm_lang$core$Native_List.fromArray(
+									[
+										_elm_lang$html$Html_Attributes$href('#tabs'),
+										_elm_lang$html$Html_Events$onClick(
+										_user$project$Main$ChangePage(_user$project$Main$FirmSignUpPage)),
+										_elm_lang$html$Html_Attributes$class('pure-button')
+									]),
+								_elm_lang$core$Native_List.fromArray(
+									[
+										A2(
+										_elm_lang$html$Html$i,
+										_elm_lang$core$Native_List.fromArray(
+											[
+												_elm_lang$html$Html_Attributes$class('fa fa-inbox')
+											]),
+										_elm_lang$core$Native_List.fromArray(
+											[])),
+										_elm_lang$html$Html$text(' Firm Sign Up')
+									]))
+							])),
+						A2(
+						_elm_lang$html$Html$hr,
+						_elm_lang$core$Native_List.fromArray(
+							[]),
+						_elm_lang$core$Native_List.fromArray(
+							[])),
+						A2(
+						_elm_lang$html$Html$div,
+						_elm_lang$core$Native_List.fromArray(
+							[
+								_elm_lang$html$Html_Attributes$id('tabs')
+							]),
+						_elm_lang$core$Native_List.fromArray(
+							[page])),
+						A2(
+						_elm_lang$html$Html$hr,
+						_elm_lang$core$Native_List.fromArray(
+							[]),
+						_elm_lang$core$Native_List.fromArray(
+							[])),
+						A2(
+						_elm_lang$html$Html$button,
+						_elm_lang$core$Native_List.fromArray(
+							[
+								_elm_lang$html$Html_Attributes$class('pure-button pure-button-primary'),
+								_elm_lang$html$Html_Attributes$type$('submit')
+							]),
+						_elm_lang$core$Native_List.fromArray(
+							[
+								_elm_lang$html$Html$text('Sign Up')
+							]))
+					]))
+			]));
+};
+var _user$project$Main$view = function (model) {
+	return A2(
+		_elm_lang$html$Html$div,
+		_elm_lang$core$Native_List.fromArray(
+			[]),
+		_elm_lang$core$Native_List.fromArray(
+			[
+				_user$project$Main$header,
+				_user$project$Main$splashContainer,
+				_user$project$Main$contentWrapper(model)
+			]));
+};
+var _user$project$Main$main = {
+	main: _elm_lang$html$Html_App$beginnerProgram(
+		{model: _user$project$Main$initModel, update: _user$project$Main$update, view: _user$project$Main$view})
+};

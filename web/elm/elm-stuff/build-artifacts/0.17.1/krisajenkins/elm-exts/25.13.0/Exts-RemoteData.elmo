@@ -1,0 +1,177 @@
+var _krisajenkins$elm_exts$Exts_RemoteData$isSuccess = function (data) {
+	var _p0 = data;
+	if (_p0.ctor === 'Success') {
+		return true;
+	} else {
+		return false;
+	}
+};
+var _krisajenkins$elm_exts$Exts_RemoteData$withDefault = F2(
+	function ($default, data) {
+		var _p1 = data;
+		if (_p1.ctor === 'Success') {
+			return _p1._0;
+		} else {
+			return $default;
+		}
+	});
+var _krisajenkins$elm_exts$Exts_RemoteData$Success = function (a) {
+	return {ctor: 'Success', _0: a};
+};
+var _krisajenkins$elm_exts$Exts_RemoteData$update = F2(
+	function (f, remoteData) {
+		var _p2 = remoteData;
+		if (_p2.ctor === 'Success') {
+			var _p3 = f(_p2._0);
+			var first = _p3._0;
+			var second = _p3._1;
+			return {
+				ctor: '_Tuple2',
+				_0: _krisajenkins$elm_exts$Exts_RemoteData$Success(first),
+				_1: second
+			};
+		} else {
+			return {ctor: '_Tuple2', _0: remoteData, _1: _elm_lang$core$Platform_Cmd$none};
+		}
+	});
+var _krisajenkins$elm_exts$Exts_RemoteData$Failure = function (a) {
+	return {ctor: 'Failure', _0: a};
+};
+var _krisajenkins$elm_exts$Exts_RemoteData$asCmd = function (task) {
+	return A3(_elm_lang$core$Task$perform, _krisajenkins$elm_exts$Exts_RemoteData$Failure, _krisajenkins$elm_exts$Exts_RemoteData$Success, task);
+};
+var _krisajenkins$elm_exts$Exts_RemoteData$fromResult = function (result) {
+	var _p4 = result;
+	if (_p4.ctor === 'Err') {
+		return _krisajenkins$elm_exts$Exts_RemoteData$Failure(_p4._0);
+	} else {
+		return _krisajenkins$elm_exts$Exts_RemoteData$Success(_p4._0);
+	}
+};
+var _krisajenkins$elm_exts$Exts_RemoteData$fromTask = function (_p5) {
+	return A2(
+		_elm_lang$core$Task$map,
+		_krisajenkins$elm_exts$Exts_RemoteData$fromResult,
+		_elm_lang$core$Task$toResult(_p5));
+};
+var _krisajenkins$elm_exts$Exts_RemoteData$Loading = {ctor: 'Loading'};
+var _krisajenkins$elm_exts$Exts_RemoteData$NotAsked = {ctor: 'NotAsked'};
+var _krisajenkins$elm_exts$Exts_RemoteData$map = F2(
+	function (f, data) {
+		var _p6 = data;
+		switch (_p6.ctor) {
+			case 'Success':
+				return _krisajenkins$elm_exts$Exts_RemoteData$Success(
+					f(_p6._0));
+			case 'Failure':
+				return _krisajenkins$elm_exts$Exts_RemoteData$Failure(_p6._0);
+			case 'Loading':
+				return _krisajenkins$elm_exts$Exts_RemoteData$Loading;
+			default:
+				return _krisajenkins$elm_exts$Exts_RemoteData$NotAsked;
+		}
+	});
+var _krisajenkins$elm_exts$Exts_RemoteData$mapFailure = F2(
+	function (f, data) {
+		var _p7 = data;
+		switch (_p7.ctor) {
+			case 'Success':
+				return _krisajenkins$elm_exts$Exts_RemoteData$Success(_p7._0);
+			case 'Failure':
+				return _krisajenkins$elm_exts$Exts_RemoteData$Failure(
+					f(_p7._0));
+			case 'Loading':
+				return _krisajenkins$elm_exts$Exts_RemoteData$Loading;
+			default:
+				return _krisajenkins$elm_exts$Exts_RemoteData$NotAsked;
+		}
+	});
+var _krisajenkins$elm_exts$Exts_RemoteData$mapBoth = F3(
+	function (successFn, errorFn, data) {
+		var _p8 = data;
+		switch (_p8.ctor) {
+			case 'Success':
+				return _krisajenkins$elm_exts$Exts_RemoteData$Success(
+					successFn(_p8._0));
+			case 'Failure':
+				return _krisajenkins$elm_exts$Exts_RemoteData$Failure(
+					errorFn(_p8._0));
+			case 'Loading':
+				return _krisajenkins$elm_exts$Exts_RemoteData$Loading;
+			default:
+				return _krisajenkins$elm_exts$Exts_RemoteData$NotAsked;
+		}
+	});
+var _krisajenkins$elm_exts$Exts_RemoteData$andThen = F2(
+	function (data, f) {
+		var _p9 = data;
+		switch (_p9.ctor) {
+			case 'Success':
+				return f(_p9._0);
+			case 'Failure':
+				return _krisajenkins$elm_exts$Exts_RemoteData$Failure(_p9._0);
+			case 'NotAsked':
+				return _krisajenkins$elm_exts$Exts_RemoteData$NotAsked;
+			default:
+				return _krisajenkins$elm_exts$Exts_RemoteData$Loading;
+		}
+	});
+var _krisajenkins$elm_exts$Exts_RemoteData$append = F2(
+	function (a, b) {
+		var _p10 = {ctor: '_Tuple2', _0: a, _1: b};
+		_v8_5:
+		do {
+			_v8_4:
+			do {
+				_v8_3:
+				do {
+					_v8_2:
+					do {
+						switch (_p10._0.ctor) {
+							case 'Success':
+								switch (_p10._1.ctor) {
+									case 'Success':
+										return _krisajenkins$elm_exts$Exts_RemoteData$Success(
+											{ctor: '_Tuple2', _0: _p10._0._0, _1: _p10._1._0});
+									case 'Failure':
+										break _v8_2;
+									case 'NotAsked':
+										break _v8_4;
+									default:
+										return _krisajenkins$elm_exts$Exts_RemoteData$Loading;
+								}
+							case 'Failure':
+								return _krisajenkins$elm_exts$Exts_RemoteData$Failure(_p10._0._0);
+							case 'NotAsked':
+								switch (_p10._1.ctor) {
+									case 'Failure':
+										break _v8_2;
+									case 'NotAsked':
+										break _v8_3;
+									case 'Loading':
+										break _v8_3;
+									default:
+										break _v8_3;
+								}
+							default:
+								switch (_p10._1.ctor) {
+									case 'Failure':
+										break _v8_2;
+									case 'NotAsked':
+										break _v8_4;
+									case 'Loading':
+										break _v8_5;
+									default:
+										break _v8_5;
+								}
+						}
+					} while(false);
+					return _krisajenkins$elm_exts$Exts_RemoteData$Failure(_p10._1._0);
+				} while(false);
+				return _krisajenkins$elm_exts$Exts_RemoteData$NotAsked;
+			} while(false);
+			return _krisajenkins$elm_exts$Exts_RemoteData$NotAsked;
+		} while(false);
+		return _krisajenkins$elm_exts$Exts_RemoteData$Loading;
+	});
+var _krisajenkins$elm_exts$Exts_RemoteData$mappend = _krisajenkins$elm_exts$Exts_RemoteData$append;
