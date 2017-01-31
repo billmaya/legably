@@ -45,7 +45,8 @@ exports.config = {
       "test/static",
       "web/elm/Main.elm",
       "web/elm/LawyerSignUp.elm",
-      "web/elm/FirmSignUp.elm"
+      "web/elm/FirmSignUp.elm",
+      "web/elm/TermsAndConditions.elm"
     ],
 
     // Where to compile files to
@@ -56,7 +57,7 @@ exports.config = {
   plugins: {
     elmBrunch: {
         elmFolder: "web/elm",
-        mainModules: ["Main.elm", "LawyerSignUp.elm", "FirmSignUp.elm"],
+        mainModules: ["Main.elm", "LawyerSignUp.elm", "FirmSignUp.elm", "TermsAndConditions.elm"],
         outputFolder: "../static/vendor"
     },
     babel: {

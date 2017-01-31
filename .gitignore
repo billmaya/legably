@@ -24,4 +24,4 @@ erl_crash.dump
 #/config/prod.secret.exs
 
 # elm-package generated files
-elm-stuff
+web/elm/elm-stuff

@@ -41,6 +41,7 @@ type Msg
     = ChangePage Page
     | LawyerSignUpMsg LawyerSignUp.Msg
     | FirmSignUpMsg FirmSignUp.Msg
+    | AcceptTermsAndConditions
 
 
 update : Msg -> Model -> Model
@@ -62,6 +63,9 @@ update msg model =
                 | firmSignUp =
                     FirmSignUp.update firmMsg model.firmSignUp
             }
+
+        _ ->
+            model
 
 
 
@@ -147,10 +151,19 @@ contentWrapper model =
                 , div [ id "tabs" ] [ page ]
                 , hr [] []
                 , button [ class "pure-button pure-button-primary", type' "submit" ] [ text "Sign Up" ]
+                , checkbox AcceptTermsAndConditions "Accept "
+                , a [ href "#" ] [ text "Terms & Conditions" ]
                   -- , h4 [] [ text "App Model:" ]
                   -- , p [] [ text <| toString model ]
                 ]
             ]
+
+
+checkbox : msg -> String -> Html msg
+checkbox msg name =
+    label
+        [ style [ ( "padding", "20px" ) ] ]
+        [ input [ type' "checkbox", onClick msg ] [], text name ]
 
 
 main : Program Never
