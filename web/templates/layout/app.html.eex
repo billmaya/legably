@@ -12,7 +12,6 @@
   </head>
 
   <body>
-     This text in app.html.eex
     <div class="container">
 
       <main role="main">
