@@ -10138,7 +10138,7 @@ var _user$project$Main$contentWrapper = function (model) {
 						_elm_lang$html$Html$a,
 						_elm_lang$core$Native_List.fromArray(
 							[
-								_elm_lang$html$Html_Attributes$href('#')
+								_elm_lang$html$Html_Attributes$href('/terms')
 							]),
 						_elm_lang$core$Native_List.fromArray(
 							[
