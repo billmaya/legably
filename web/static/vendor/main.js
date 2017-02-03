@@ -10143,6 +10143,17 @@ var _user$project$Main$contentWrapper = function (model) {
 						_elm_lang$core$Native_List.fromArray(
 							[
 								_elm_lang$html$Html$text('Terms & Conditions')
+							])),
+						_elm_lang$html$Html$text(' and aware of '),
+						A2(
+						_elm_lang$html$Html$a,
+						_elm_lang$core$Native_List.fromArray(
+							[
+								_elm_lang$html$Html_Attributes$href('/privacy')
+							]),
+						_elm_lang$core$Native_List.fromArray(
+							[
+								_elm_lang$html$Html$text('Privacy Policy')
 							]))
 					]))
 			]));

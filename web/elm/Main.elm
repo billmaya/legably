@@ -153,6 +153,8 @@ contentWrapper model =
                 , button [ class "pure-button pure-button-primary", type' "submit" ] [ text "Sign Up" ]
                 , checkbox AcceptTermsAndConditions "Accept "
                 , a [ href "/terms" ] [ text "Terms & Conditions" ]
+                , text " and aware of "
+                , a [ href "/privacy" ] [ text "Privacy Policy" ]
                   -- , h4 [] [ text "App Model:" ]
                   -- , p [] [ text <| toString model ]
                 ]
