@@ -1,4 +1,4 @@
-# App artifacts
+#App artifacts
 /_build
 /db
 /deps
@@ -24,4 +24,4 @@ erl_crash.dump
 #/config/prod.secret.exs
 
 # elm-package generated files
-web/elm/elm-stuff
+/web/elm/elm-stuff
