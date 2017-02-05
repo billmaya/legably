@@ -16,6 +16,7 @@ defmodule Legably.Router do
   scope "/", Legably do
     pipe_through :browser # Use the default browser stack
 
+    get "/login", LoginController, :index
     get "/privacy", PrivacyController, :index
     get "/terms", TermsController, :show
     get "/", PageController, :index
