@@ -9875,7 +9875,7 @@ var _user$project$Main$splashContainer = A2(
 						]),
 					_elm_lang$core$Native_List.fromArray(
 						[
-							_elm_lang$html$Html$text('Lorem ipsum dolor sit amet, consectetur adipiscing.')
+							_elm_lang$html$Html$text('Welcome to Legably.')
 						])),
 					A2(
 					_elm_lang$html$Html$p,
@@ -9885,7 +9885,7 @@ var _user$project$Main$splashContainer = A2(
 						]),
 					_elm_lang$core$Native_List.fromArray(
 						[
-							_elm_lang$html$Html$text('Pellentesque volutpat blandit finibus. Donec lacinia rhoncus tortor ac congue. Nulla nunc quam, ultricies sed.')
+							_elm_lang$html$Html$text('Here\'s where some catchy marketing headline would go to induce lawyers or firms to signup.')
 						]))
 				]))
 		]));
@@ -9937,7 +9937,7 @@ var _user$project$Main$header = A2(
 									_elm_lang$core$Native_List.fromArray(
 										[
 											_elm_lang$html$Html_Attributes$class('pure-menu-link'),
-											_elm_lang$html$Html_Attributes$href('#')
+											_elm_lang$html$Html_Attributes$href('/about')
 										]),
 									_elm_lang$core$Native_List.fromArray(
 										[
@@ -9957,7 +9957,7 @@ var _user$project$Main$header = A2(
 									_elm_lang$core$Native_List.fromArray(
 										[
 											_elm_lang$html$Html_Attributes$class('pure-menu-link'),
-											_elm_lang$html$Html_Attributes$href('#')
+											_elm_lang$html$Html_Attributes$href('/login')
 										]),
 									_elm_lang$core$Native_List.fromArray(
 										[
