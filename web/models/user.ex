@@ -4,23 +4,23 @@ defmodule Legably.User do
   # Primary key automatically defined; defaults to :id
 
   schema "users" do
-    field :lawyer, :boolean
-    field :firm, :boolean
-    field :first_name, :string
-    field :last_name, :string
-    field :email, :string
+    field :lawyer, :boolean, null: true
+    field :firm, :boolean, null: true
+    field :first_name, :string, null: false
+    field :last_name, :string, null: false
+    field :email, :string, null: false
     field :password, :string, virtual: true
-    field :password_hash, :string
-    field :bar_id, :string
-    field :bar_state, :string
-    field :phone, :string
-    field :firm_name, :string
-    field :area_of_focus, :string
-    field :street_address_1, :string
-    field :street_address_2, :string
-    field :city, :string
-    field :state, :string
-    field :zip, :string
+    field :password_hash, :string, null: false
+    field :bar_id, :string, null: true
+    field :bar_state, :string, null: true
+    field :phone, :string, null: true
+    field :firm_name, :string, null: true
+    field :area_of_focus, :string, null: true
+    field :street_address_1, :string, null: true
+    field :street_address_2, :string, null: true
+    field :city, :string, null: true
+    field :state, :string, null: true
+    field :zip, :string, null: true
   end
 
   def changeset(model, params \\ :empty) do
