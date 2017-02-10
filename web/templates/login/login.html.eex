@@ -1,1 +1,4 @@
 <h1>Login Page</h1>
+<p><%= text_input(:user, :email_address, placeholder: "Email Address") %></p>
+<p><%= text_input(:user, :password, placeholder: "Password") %></p>
+<%= submit "Login", class: "btn btn-primary" %>
