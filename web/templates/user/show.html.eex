@@ -1,2 +1,2 @@
-<h1>User</h1>
+<h1>User Page</h1>
 <%= render "user.html", user: @user %>
