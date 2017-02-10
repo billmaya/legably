@@ -1,0 +1,1 @@
+<b><%= fullname(@user) %></b> (<%= @user.id %>)

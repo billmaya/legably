@@ -9,7 +9,7 @@ defmodule Legably do
     # Define workers and child supervisors to be supervised
     children = [
       # Start the Ecto repository
-      supervisor(Legably.Repo, []),
+      #supervisor(Legably.Repo, []),
       # Start the endpoint when the application starts
       supervisor(Legably.Endpoint, []),
       # Start your own worker by calling: Legably.Worker.start_link(arg1, arg2, arg3)
