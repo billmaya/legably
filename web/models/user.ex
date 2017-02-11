@@ -12,4 +12,9 @@ defmodule Legably.User do
     timestamps
   end
 
+  def changeset(model, params \\ :empty) do
+    model
+    |> cast(params, ~w(first_name last_name email password_hash), [])
+  end
+
 end
