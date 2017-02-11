@@ -2,5 +2,7 @@
 
 <p><%= text_input(:user, :first_name, value: @user.first_name) %></p>
 <p><%= text_input(:user, :last_name, value: @user.last_name) %></p>
-<p><%= text_input(:user, :email, value: @user.email) %></p>
+<p><%= text_input(:user, :phone, value: @user.phone) %></p>
 <p><%= text_input(:user, :email, value: @user.password_hash) %></p>
+<p><%= text_input(:user, :bar_id, value: @user.bar_id) %></p>
+<p><%= text_input(:user, :bar_state, value: @user.bar_state) %></p>
