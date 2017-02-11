@@ -1,2 +1,6 @@
 <h1>User Page</h1>
-<%= render "user.html", user: @user %>
+
+<p><%= text_input(:user, :first_name, value: @user.first_name) %></p>
+<p><%= text_input(:user, :last_name, value: @user.last_name) %></p>
+<p><%= text_input(:user, :email, value: @user.email) %></p>
+<p><%= text_input(:user, :email, value: @user.password_hash) %></p>
