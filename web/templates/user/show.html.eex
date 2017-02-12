@@ -1,10 +1,16 @@
 <h1>User Page</h1>
 
-<p><%= text_input(:user, :first_name, value: @user.first_name, placeholder: "First Name") %></p>
-<p><%= text_input(:user, :last_name, value: @user.last_name, placeholder: "Last Name") %></p>
-<p><%= text_input(:user, :phone, value: @user.phone, placeholder: "Phone") %></p>
-<p><%= text_input(:user, :email, value: @user.email, placeholder: "Email") %></p>
-<p><%= text_input(:user, :password_hash, value: @user.password_hash, placeholder: "Password") %></p>
-<p><%= text_input(:user, :bar_id, value: @user.bar_id, placeholder: "Bar ID") %></p>
-<p><%= text_input(:user, :bar_state, value: @user.bar_state, placeholder: "Bar State") %></p>
-<p><%= text_input(:user, :firm_name, value: @user.firm_name, placeholder: "Firm Name") %></p>
+<p><%= text_input :user, :first_name, value: @user.first_name, placeholder: "First Name" %></p>
+<p><%= text_input :user, :last_name, value: @user.last_name, placeholder: "Last Name" %></p>
+<p><%= text_input :user, :phone, value: @user.phone, placeholder: "Phone" %></p>
+<p><%= text_input :user, :email, value: @user.email, placeholder: "Email" %></p>
+<p><%= text_input :user, :password_hash, value: @user.password_hash, placeholder: "Password" %></p>
+<p><%= text_input :user, :bar_id, value: @user.bar_id, placeholder: "Bar ID" %></p>
+<p><%= text_input :user, :bar_state, value: @user.bar_state, placeholder: "Bar State" %></p>
+<p><%= text_input :user, :firm_name, value: @user.firm_name, placeholder: "Firm Name" %></p>
+<p><%= text_input :user, :area_of_focus, value: @user.area_of_focus, placeholder: "Area of Focus" %></p>
+<p><%= text_input :user, :street_address_1, value: @user.street_address_1, placeholder: "Street Address 1" %></p>
+<p><%= text_input :user, :street_address_2, value: @user.street_address_2, placeholder: "Street Address 2" %></p>
+<p><%= text_input :user, :city, value: @user.city, placeholder: "City" %></p>
+<p><%= text_input :user, :state, value: @user.state, placeholder: "State" %></p>
+<p><%= text_input :user, :zip, value: @user.zip, placeholder: "Zip" %></p>
