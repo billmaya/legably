@@ -12,13 +12,23 @@ defmodule Legably.User do
     field :password_hash, :string
     field :bar_id, :string
     field :bar_state, :string
+    field :firm_name, :string
+    field :area_of_focus, :string
+    field :street_address_1, :string
+    field :street_address_2, :string
+    field :city, :string
+    field :state, :string
+    field :zip, :string
 
     timestamps
   end
 
   def changeset(model, params \\ :empty) do
     model
-    |> cast(params, ~w(first_name last_name phone email password_hash bar_id bar_state), [])
+    |> cast(params, [:first_name, :last_name, :phone, :email, :password_hash, :bar_id, :bar_state,
+                     :firm_name, :area_of_focus, :street_address_1, :street_address_2,
+                     :city, :state, :zip])
+    |> validate_required([:first_name, :last_name, :email, :password_hash])
   end
 
 end
