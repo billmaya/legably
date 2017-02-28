@@ -1,5 +1,18 @@
 <h1>User Page</h1>
 
+<p>
+  <%= if @user.type == "lawyer" do %>
+    <%= radio_button :user, :type, @user.type, checked: "checked" %>
+    <%= label :user, :lawyer, "Lawyer" %>
+    <%= radio_button :user, :type, @user.type %>
+    <%= label :user, :firm, "Firm" %>
+  <%= else %>
+    <%= radio_button :user, :type, @user.type %>
+    <%= label :user, :lawyer, "Lawyer" %>
+    <%= radio_button :user, :type, @user.type, checked: "checked" %>
+    <%= label :user, :firm, "Firm" %>
+  <% end %>
+</p>
 <p><%= text_input :user, :first_name, value: @user.first_name, placeholder: "First Name" %></p>
 <p><%= text_input :user, :last_name, value: @user.last_name, placeholder: "Last Name" %></p>
 <p><%= text_input :user, :phone, value: @user.phone, placeholder: "Phone" %></p>
