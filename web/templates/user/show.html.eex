@@ -1,16 +1,28 @@
 <h1>User Page</h1>
 
 <p>
-  <%= if @user.type == "lawyer" do %>
-    <%= radio_button :user, :type, @user.type, checked: "checked" %>
-    <%= label :user, :lawyer, "Lawyer" %>
-    <%= radio_button :user, :type, @user.type %>
-    <%= label :user, :firm, "Firm" %>
-  <%= else %>
-    <%= radio_button :user, :type, @user.type %>
-    <%= label :user, :lawyer, "Lawyer" %>
-    <%= radio_button :user, :type, @user.type, checked: "checked" %>
-    <%= label :user, :firm, "Firm" %>
+  <%= cond do %>
+    <%= @user.type == "lawyer" -> %>
+      <%= radio_button :user, :type, @user.type, checked: "checked" %>
+      <%= label :user, :lawyer, "Lawyer" %>
+      <%= radio_button :user, :type, @user.type %>
+      <%= label :user, :firm, "Firm" %>
+      <%= radio_button :user, :type, @user.type %>
+      <%= label :user, :both, "Lawyer/Firm" %>
+    <%= @user.type == "firm" -> %>
+      <%= radio_button :user, :type, @user.type %>
+      <%= label :user, :lawyer, "Lawyer" %>
+      <%= radio_button :user, :type, @user.type, checked: "checked" %>
+      <%= label :user, :firm, "Firm" %>
+      <%= radio_button :user, :type, @user.type %>
+      <%= label :user, :both, "Lawyer/Firm" %>
+    <%= @user.type == "both" -> %>
+      <%= radio_button :user, :type, @user.type %>
+      <%= label :user, :lawyer, "Lawyer" %>
+      <%= radio_button :user, :type, @user.type %>
+      <%= label :user, :firm, "Firm" %>
+      <%= radio_button :user, :type, @user.type, checked: "checked" %>
+      <%= label :user, :both, "Lawyer/Firm" %>
   <% end %>
 </p>
 <p><%= text_input :user, :first_name, value: @user.first_name, placeholder: "First Name" %></p>
