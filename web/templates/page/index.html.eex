@@ -11,11 +11,13 @@
     <li>
       <a href="#2" data-toggle="tab">Firm Sign Up</a>
     </li>
+    <li>
+      <a href="#3" data-toggle="tab">Lawyer/Firm Sign Up</a>
+    </li>
   </ul>
 
   <div class="tab-content">
     <div class="tab-pane active" id="1">
-      <div>
         <p>
           <br>
           <%= text_input(:user, :first_name, placeholder: "First Name") %>
@@ -31,7 +33,6 @@
           <%= text_input(:user, :bar_id, placeholder: "Bar ID") %>
           <%= text_input(:user, :bar_state, placeholder: "State Barred In") %>
         </p>
-      </div>
     </div>
     <div class="tab-pane" id="2">
       <p>
@@ -58,6 +59,36 @@
         <%= text_input(:user, :state, placeholder: "State") %>
         <%= text_input(:user, :zip, placeholder: "Zip") %>
       </p>
+    </div>
+    <div class="tab-pane" id="3">
+        <p>
+          <br>
+          <%= text_input(:user, :first_name, placeholder: "First Name") %>
+          <%= text_input(:user, :last_name, placeholder: "Last Name") %>
+          <%= text_input(:user, :phone, placeholder: "Phone (optional)") %>
+        </p>
+        <p>
+          <%= text_input(:user, :email_address, placeholder: "Email Address") %>
+          <%= text_input(:user, :password, placeholder: "Password") %>
+          <%= text_input(:user, :password, placeholder: "Confirm Password") %>
+        </p>
+        <p>
+          <%= text_input(:user, :bar_id, placeholder: "Bar ID") %>
+          <%= text_input(:user, :bar_state, placeholder: "State Barred In") %>
+        </p>
+        <p>
+          <%= text_input(:user, :firm_name, placeholder: "Firm Name") %>
+          <%= text_input(:user, :area_of_focus, placeholder: "Area of Focus") %>
+        </p>
+        <p>
+          <%= text_input(:user, :street_address_1, placeholder: "Street Address 1") %>
+          <%= text_input(:user, :street_address_2, placeholder: "Street Address 2") %>
+        </p>
+        <p>
+          <%= text_input(:user, :city, placeholder: "City") %>
+          <%= text_input(:user, :state, placeholder: "State") %>
+          <%= text_input(:user, :zip, placeholder: "Zip") %>
+        </p>
     </div>
   </div>
 </div>
