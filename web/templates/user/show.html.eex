@@ -29,7 +29,7 @@
 <p><%= text_input :user, :last_name, value: @user.last_name, placeholder: "Last Name" %></p>
 <p><%= text_input :user, :phone, value: @user.phone, placeholder: "Phone" %></p>
 <p><%= text_input :user, :email, value: @user.email, placeholder: "Email" %></p>
-<p><%= text_input :user, :password_hash, value: @user.password_hash, placeholder: "Password" %></p>
+<p><%= text_input :user, :password, value: @user.password, placeholder: "Password" %></p>
 <p><%= text_input :user, :bar_id, value: @user.bar_id, placeholder: "Bar ID" %></p>
 <p><%= text_input :user, :bar_state, value: @user.bar_state, placeholder: "Bar State" %></p>
 <p><%= text_input :user, :firm_name, value: @user.firm_name, placeholder: "Firm Name" %></p>
