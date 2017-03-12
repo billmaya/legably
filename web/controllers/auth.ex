@@ -1,5 +1,6 @@
 defmodule Legably.Auth do
   import Plug.Conn
+  import Comeonin.Bcrypt, only: [checkpw: 2, dummy_checkpw: 0]
 
   def init(opts) do
     Keyword.fetch!(opts, :repo)
@@ -17,4 +18,20 @@ defmodule Legably.Auth do
     |> put_session(:user_id, user.id)
     |> configure_session(renew: true)
   end
+
+  def login_by_email_and_password(conn, email, given_password, opts) do
+    repo = Keyword.fetch!(opts, :repo)
+    user = repo.get_by(Legably.User, email_address: email)
+
+    cond do
+      user && checkpw(given_password, user.password_hash) ->
+        {:ok, login(conn, user)}
+      user ->
+        {:error, :unauthorized, conn}
+      true ->
+        dummy_checkpw()
+        {:error, :not_found, conn}
+    end
+  end
+
 end

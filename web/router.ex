@@ -23,6 +23,7 @@ defmodule Legably.Router do
     get "/privacy", PrivacyController, :index
     get "/terms", TermsController, :show
     resources "/users", UserController, only: [:index, :show, :new, :create]
+    resources "/sessions", SessionController, only: [:new, :create, :delete]
   end
 
   # Other scopes may use custom stacks.
