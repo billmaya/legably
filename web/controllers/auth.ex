@@ -34,4 +34,8 @@ defmodule Legably.Auth do
     end
   end
 
+  def logout(conn) do
+    configure_session(conn, drop: true)
+  end
+
 end
