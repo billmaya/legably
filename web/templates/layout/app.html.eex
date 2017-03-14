@@ -21,7 +21,6 @@
             <%= if @current_user do %>
               <li><%= link "About", to: about_path(@conn, :index) %></li>
               <li><%= link "Logout", to: session_path(@conn, :delete, @current_user), method: "delete" %></li>
-              <!-- <li><%= link "Users", to: user_path(@conn, :index) %></li> -->
               <li><%= link Legably.UserView.fullname(@current_user), to: user_path(@conn, :show, @current_user.id) %></li>
             <% else %>
               <li><%= link "About", to: about_path(@conn, :index) %></li>
