@@ -18,7 +18,7 @@
         <div class="navbar-header">
           <a class="navbar-brand" href="/">Legably</a>
           <ul class="nav navbar-nav navbar-right">
-            <li><%= link "About", to: "/about" %></li>
+            <li><%= link "About", to: about_path(@conn, :index) %></li>
             <%= if @current_user do %>
               <li><%= link "Logout", to: session_path(@conn, :delete, @current_user), method: "delete" %></li>
             <% else %>
