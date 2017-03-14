@@ -18,15 +18,13 @@
         <div class="navbar-header">
           <a class="navbar-brand" href="/">Legably</a>
           <ul class="nav navbar-nav navbar-right">
+            <li><%= link "About", to: "/about" %></li>
             <%= if @current_user do %>
-              <li><%= link "About", to: "/about" %></li>
               <li><%= link "Logout", to: session_path(@conn, :delete, @current_user), method: "delete" %></li>
-              <li><%= link "Users", to: user_path(@conn, :index) %></li>
             <% else %>
-              <li><%= link "About", to: "/about" %></li>
               <li><%= link "Login", to: session_path(@conn, :new) %></li>
-              <li><%= link "Users", to: user_path(@conn, :index) %></li>
             <% end %>
+            <li><%= link "Users", to: user_path(@conn, :index) %></li>
           </ul>
         </div>
       </nav>
