@@ -19,12 +19,12 @@ defmodule Legably.Auth do
     |> configure_session(renew: true)
   end
 
-  def login_by_email_and_password(conn, email, given_password, opts) do
+  def login_by_email_and_password(conn, username, given_pass, opts) do
     repo = Keyword.fetch!(opts, :repo)
-    user = repo.get_by(Legably.User, email_address: email)
+    user = repo.get_by(Legably.User, email: username)
 
     cond do
-      user && checkpw(given_password, user.password_hash) ->
+      user && checkpw(given_pass, user.password_hash) ->
         {:ok, login(conn, user)}
       user ->
         {:error, :unauthorized, conn}

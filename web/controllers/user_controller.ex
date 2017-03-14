@@ -1,5 +1,7 @@
 defmodule Legably.UserController do
   use Legably.Web, :controller
+  alias Legably.User
+
   plug :authenticate when action in [:index, :show]
 
   def index(conn, _params) do
@@ -12,8 +14,6 @@ defmodule Legably.UserController do
     render conn, "show.html", user: user
   end
 
-  alias Legably.User
-
   def new(conn, _params) do
     changeset = User.changeset(%User{})
     render conn, "new.html", changeset: changeset
@@ -25,7 +25,7 @@ defmodule Legably.UserController do
       {:ok, user} ->
         conn
         |> Legably.Auth.login(user)
-        |> put_flash(:info, "%{user.first_name} created!")
+        |> put_flash(:info, "#{user.first_name} created!")
         |> redirect(to: user_path(conn, :index))
       {:error, changeset} ->
         render(conn, "new.html", changeset: changeset)
@@ -37,7 +37,7 @@ defmodule Legably.UserController do
       conn
     else
       conn
-      |> put_flash(:error, "You must be logged in to access that page.")
+    #  |> put_flash(:error, "You must be logged in to access that page.")
       |> redirect(to: page_path(conn, :index))
       |> halt()
     end

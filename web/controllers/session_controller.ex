@@ -5,8 +5,8 @@ defmodule Legably.SessionController do
     render conn, "new.html"
   end
 
-  def create(conn, %{"session" => %{"email_address" => email_address, "password" => password}}) do
-    case Legably.Auth.login_by_email_and_password(conn, email_address, password, repo: Repo) do
+  def create(conn, %{"session" => %{"email" => email, "password" => pass}}) do
+    case Legably.Auth.login_by_email_and_pass(conn, email, pass, repo: Repo) do
       {:ok, conn} ->
         conn
         |> put_flash(:info, "Welcome back!")

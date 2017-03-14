@@ -19,7 +19,7 @@ defmodule Legably.Router do
 
     get "/", PageController, :index
     get "/about", AboutController, :index
-    get "/login", LoginController, :index
+    #get "/login", LoginController, :index
     get "/privacy", PrivacyController, :index
     get "/terms", TermsController, :show
     resources "/users", UserController, only: [:index, :show, :new, :create]
