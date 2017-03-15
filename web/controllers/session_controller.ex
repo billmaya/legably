@@ -9,7 +9,7 @@ defmodule Legably.SessionController do
     case Legably.Auth.login_by_email_and_pass(conn, email, pass, repo: Repo) do
       {:ok, conn} ->
         conn
-        |> put_flash(:info, "Welcome back!")
+        #|> put_flash(:info, "Welcome back!")
         |> redirect(to: page_path(conn, :index))
       {:error, _reason, conn} ->
         conn
