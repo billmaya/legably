@@ -21,7 +21,7 @@ defmodule Legably.SessionController do
   def delete(conn, _) do
     conn
     |> Legably.Auth.logout()
-    |> redirect(to: page_path(conn, :index))
+    |> redirect(to: page_path(conn, :new))
   end
 
 end
