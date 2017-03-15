@@ -10,7 +10,7 @@ defmodule Legably.SessionController do
       {:ok, conn} ->
         conn
         #|> put_flash(:info, "Welcome back!")
-        |> redirect(to: page_path(conn, :index))
+        |> redirect(to: page_path(conn, :new))
       {:error, _reason, conn} ->
         conn
         |> put_flash(:error, "Invalid email/password combination!")
