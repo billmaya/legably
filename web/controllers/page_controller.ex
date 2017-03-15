@@ -1,8 +1,11 @@
 defmodule Legably.PageController do
   use Legably.Web, :controller
 
-  def index(conn, _params) do
-    render conn, "index.html"
+  alias Legably.User
+
+  def new(conn, _params) do
+    changeset = User.changeset(%User{})
+    render conn, "new.html", changeset: changeset
   end
 
 end
