@@ -3,89 +3,99 @@
   <h3>Here's where some catchy marketing text would go to make lawyers or firms want to sign up.</h3>
   <hr>
 </p>
+
+<%= if @changeset.action do %>
+  <div class="alert alert-danger">
+    <p>Oops, something went wrong! Please check the errors below.</p>
+  </div>
+<% end %>
+
+<%= form_for @changeset, page_path(@conn, :create), fn f -> %>
 <div id="tabs" class="container">
   <ul class="nav nav-tabs">
     <li class="active">
-      <a href="#1" data-toggle="tab">Lawyer Sign Up</a>
+      <a href="#lawyer-sign-up" data-toggle="tab">Lawyer Sign Up</a>
     </li>
     <li>
-      <a href="#2" data-toggle="tab">Firm Sign Up</a>
+      <a href="#firm-sign-up" data-toggle="tab">Firm Sign Up</a>
     </li>
     <li>
-      <a href="#3" data-toggle="tab">Lawyer/Firm Sign Up</a>
+      <a href="#both-sign-up" data-toggle="tab">Lawyer/Firm Sign Up</a>
     </li>
   </ul>
 
-<%= form_for @changeset, user_path(@conn, :create), fn f -> %>
   <div class="tab-content">
-    <div class="tab-pane active" id="1">
+    <div class="tab-pane active" id="lawyer-sign-up">
         <p>
-          <%= text_input :user, :first_name, placeholder: "First Name" %>
-          <%= text_input :user, :last_name, placeholder: "Last Name" %>
-          <%= text_input :user, :phone, placeholder: "Phone (optional)" %>
+          <br>
+          <%= text_input f, :first_name, placeholder: "First Name" %>
+          <%= text_input f, :last_name, placeholder: "Last Name" %>
+          <%= text_input f, :phone, placeholder: "Phone (optional)" %>
         </p>
         <p>
-          <%= text_input :user, :email_address, placeholder: "Email Address" %>
-          <%= text_input :user, :password, placeholder: "Password" %>
-          <%= text_input :user, :password, placeholder: "Confirm Password" %>
+          <%= text_input f, :email_address, placeholder: "Email Address" %>
+          <%= text_input f, :password, placeholder: "Password" %>
+          <%= text_input f, :password, placeholder: "Confirm Password" %>
         </p>
         <p>
-          <%= text_input :user, :bar_id, placeholder: "Bar ID" %>
-          <%= text_input :user, :bar_state, placeholder: "State Barred In" %>
+          <%= text_input f, :bar_id, placeholder: "Bar ID" %>
+          <%= text_input f, :bar_state, placeholder: "State Barred In" %>
         </p>
     </div>
-    <div class="tab-pane" id="2">
+    <div class="tab-pane" id="firm-sign-up">
       <p>
-        <%= text_input :user, :first_name, placeholder: "First Name" %>
-        <%= text_input :user, :last_name, placeholder: "Last Name" %>
-        <%= text_input :user, :phone, placeholder: "Phone (optional)" %>
+        <br>
+        <%= text_input f, :first_name, placeholder: "First Name" %>
+        <%= text_input f, :last_name, placeholder: "Last Name" %>
+        <%= text_input f, :phone, placeholder: "Phone (optional)" %>
       </p>
       <p>
-        <%= text_input :user, :email_address, placeholder: "Email Address" %>
-        <%= text_input :user, :password, placeholder: "Password" %>
-        <%= text_input :user, :password, placeholder: "Confirm Password" %>
+        <%= text_input f, :email_address, placeholder: "Email Address" %>
+        <%= text_input f, :password, placeholder: "Password" %>
+        <%= text_input f, :password, placeholder: "Confirm Password" %>
       </p>
       <p>
-        <%= text_input :user, :firm_name, placeholder: "Firm Name" %>
-        <%= text_input :user, :area_of_focus, placeholder: "Area of Focus" %>
+        <%= text_input f, :firm_name, placeholder: "Firm Name" %>
+        <%= text_input f, :area_of_focus, placeholder: "Area of Focus" %>
       </p>
       <p>
-        <%= text_input :user, :street_address_1, placeholder: "Street Address 1" %>
-        <%= text_input :user, :street_address_2, placeholder: "Street Address 2" %>
+        <%= text_input f, :street_address_1, placeholder: "Street Address 1" %>
+        <%= text_input f, :street_address_2, placeholder: "Street Address 2" %>
       </p>
       <p>
-        <%= text_input :user, :city, placeholder: "City" %>
-        <%= text_input :user, :state, placeholder: "State" %>
-        <%= text_input :user, :zip, placeholder: "Zip" %>
+        <%= text_input f, :city, placeholder: "City" %>
+        <%= text_input f, :state, placeholder: "State" %>
+        <%= text_input f, :zip, placeholder: "Zip" %>
       </p>
     </div>
-    <div class="tab-pane" id="3">
+    <div class="tab-pane" id="both-sign-up">
         <p>
-          <%= text_input :user, :first_name, placeholder: "First Name" %>
-          <%= text_input :user, :last_name, placeholder: "Last Name" %>
-          <%= text_input :user, :phone, placeholder: "Phone (optional)" %>
+          <br>
+          <%= text_input f, :first_name, placeholder: "First Name" %>
+          <%= text_input f, :last_name, placeholder: "Last Name" %>
+          <%= text_input f, :phone, placeholder: "Phone (optional)" %>
         </p>
         <p>
-           <%= text_input :user, :email_address, placeholder: "Email Address" %>
-          <%= text_input :user, :password, placeholder: "Password" %>
-          <%= text_input :user, :password, placeholder: "Confirm Password" %>
+          <%= text_input f, :email_address, placeholder: "Email Address" %>
+          <%= text_input f, :password, placeholder: "Password" %>
+          <%= text_input f, :password, placeholder: "Confirm Password" %>
         </p>
         <p>
-          <%= text_input :user, :bar_id, placeholder: "Bar ID" %>
-          <%= text_input :user, :bar_state, placeholder: "State Barred In" %>
+          <%= text_input f, :bar_id, placeholder: "Bar ID" %>
+          <%= text_input f, :bar_state, placeholder: "State Barred In" %>
         </p>
         <p>
-          <%= text_input :user, :firm_name, placeholder: "Firm Name" %>
-          <%= text_input :user, :area_of_focus, placeholder: "Area of Focus" %>
+          <%= text_input f, :firm_name, placeholder: "Firm Name" %>
+          <%= text_input f, :area_of_focus, placeholder: "Area of Focus" %>
         </p>
         <p>
-          <%= text_input :user, :street_address_1, placeholder: "Street Address 1" %>
-          <%= text_input :user, :street_address_2, placeholder: "Street Address 2" %>
+          <%= text_input f, :street_address_1, placeholder: "Street Address 1" %>
+          <%= text_input f, :street_address_2, placeholder: "Street Address 2" %>
         </p>
         <p>
-          <%= text_input :user, :city, placeholder: "City" %>
-          <%= text_input :user, :state, placeholder: "State" %>
-          <%= text_input :user, :zip, placeholder: "Zip" %>
+          <%= text_input f, :city, placeholder: "City" %>
+          <%= text_input f, :state, placeholder: "State" %>
+          <%= text_input f, :zip, placeholder: "Zip" %>
         </p>
     </div>
   </div>
@@ -99,4 +109,12 @@ and aware of
 <% end %>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script>
+var old = "#lawyer-sign-up";
+$('a[data-toggle="tab"]').on('shown.bs.tab', function(e) {
+  var target = $(e.target).attr("href") // activated tab
+  alert("You were on the " + old + " tab.\nYou selected the " + target + " tab.")
+  old = target;
+});
+</script>
