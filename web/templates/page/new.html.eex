@@ -91,10 +91,19 @@ and aware of
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 <script>
-var old = "#lawyer-sign-up";
+var tabType = "lawyer";
 $('a[data-toggle="tab"]').on('shown.bs.tab', function(e) {
   var target = $(e.target).attr("href") // activated tab
-  alert("You were on the " + old + " tab.\nYou selected the " + target + " tab.");
-  old = target;
+  switch(target) {
+    case "#lawyer-sign-up":
+      tabType = "lawyer";
+      break;
+    case "#firm-sign-up":
+      tabType = "firm";
+      break;
+    case "#both-sign-up":
+      tabType = "both"
+      break;
+  }
 });
 </script>
