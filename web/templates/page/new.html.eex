@@ -25,24 +25,7 @@
   </ul>
 
   <div class="tab-content">
-    <div class="tab-pane active" id="lawyer-sign-up">
-        <p>
-          <br>
-          <%= text_input f, :first_name, placeholder: "First Name" %>
-          <%= text_input f, :last_name, placeholder: "Last Name" %>
-          <%= text_input f, :phone, placeholder: "Phone (optional)" %>
-        </p>
-        <p>
-          <%= text_input f, :email_address, placeholder: "Email Address" %>
-          <%= text_input f, :password, placeholder: "Password" %>
-          <%= text_input f, :password, placeholder: "Confirm Password" %>
-        </p>
-        <p>
-          <%= text_input f, :bar_id, placeholder: "Bar ID" %>
-          <%= text_input f, :bar_state, placeholder: "State Barred In" %>
-        </p>
-    </div>
-    <div class="tab-pane" id="firm-sign-up">
+    <div>
       <p>
         <br>
         <%= text_input f, :first_name, placeholder: "First Name" %>
@@ -54,6 +37,14 @@
         <%= text_input f, :password, placeholder: "Password" %>
         <%= text_input f, :password, placeholder: "Confirm Password" %>
       </p>
+    </div>
+    <div class="tab-pane active" id="lawyer-sign-up">
+      <p>
+        <%= text_input f, :bar_id, placeholder: "Bar ID" %>
+        <%= text_input f, :bar_state, placeholder: "State Barred In" %>
+      </p>
+    </div>
+    <div class="tab-pane" id="firm-sign-up">
       <p>
         <%= text_input f, :firm_name, placeholder: "Firm Name" %>
         <%= text_input f, :area_of_focus, placeholder: "Area of Focus" %>
@@ -69,34 +60,23 @@
       </p>
     </div>
     <div class="tab-pane" id="both-sign-up">
-        <p>
-          <br>
-          <%= text_input f, :first_name, placeholder: "First Name" %>
-          <%= text_input f, :last_name, placeholder: "Last Name" %>
-          <%= text_input f, :phone, placeholder: "Phone (optional)" %>
-        </p>
-        <p>
-          <%= text_input f, :email_address, placeholder: "Email Address" %>
-          <%= text_input f, :password, placeholder: "Password" %>
-          <%= text_input f, :password, placeholder: "Confirm Password" %>
-        </p>
-        <p>
-          <%= text_input f, :bar_id, placeholder: "Bar ID" %>
-          <%= text_input f, :bar_state, placeholder: "State Barred In" %>
-        </p>
-        <p>
-          <%= text_input f, :firm_name, placeholder: "Firm Name" %>
-          <%= text_input f, :area_of_focus, placeholder: "Area of Focus" %>
-        </p>
-        <p>
-          <%= text_input f, :street_address_1, placeholder: "Street Address 1" %>
-          <%= text_input f, :street_address_2, placeholder: "Street Address 2" %>
-        </p>
-        <p>
-          <%= text_input f, :city, placeholder: "City" %>
-          <%= text_input f, :state, placeholder: "State" %>
-          <%= text_input f, :zip, placeholder: "Zip" %>
-        </p>
+      <p>
+        <%= text_input f, :bar_id, placeholder: "Bar ID" %>
+        <%= text_input f, :bar_state, placeholder: "State Barred In" %>
+      </p>
+      <p>
+        <%= text_input f, :firm_name, placeholder: "Firm Name" %>
+        <%= text_input f, :area_of_focus, placeholder: "Area of Focus" %>
+      </p>
+      <p>
+        <%= text_input f, :street_address_1, placeholder: "Street Address 1" %>
+        <%= text_input f, :street_address_2, placeholder: "Street Address 2" %>
+      </p>
+      <p>
+        <%= text_input f, :city, placeholder: "City" %>
+        <%= text_input f, :state, placeholder: "State" %>
+        <%= text_input f, :zip, placeholder: "Zip" %>
+      </p>
     </div>
   </div>
 </div>
@@ -114,7 +94,7 @@ and aware of
 var old = "#lawyer-sign-up";
 $('a[data-toggle="tab"]').on('shown.bs.tab', function(e) {
   var target = $(e.target).attr("href") // activated tab
-  alert("You were on the " + old + " tab.\nYou selected the " + target + " tab.")
+  //alert("You were on the " + old + " tab.\nYou selected the " + target + " tab.")
   old = target;
 });
 </script>
