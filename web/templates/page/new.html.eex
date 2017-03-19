@@ -10,7 +10,7 @@
   </div>
 <% end %>
 
-<%= form_for @changeset, page_path(@conn, :create), fn f -> %>
+<%= form_for @changeset, page_path(@conn, :create), [id: "main_form"], fn f -> %>
 <div id="tabs" class="container">
   <ul class="nav nav-tabs">
     <li class="active">
@@ -91,6 +91,7 @@ and aware of
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 <script>
+// Determine which tab was selected
 var tabType = "lawyer";
 $('a[data-toggle="tab"]').on('shown.bs.tab', function(e) {
   var target = $(e.target).attr("href") // activated tab
@@ -106,4 +107,12 @@ $('a[data-toggle="tab"]').on('shown.bs.tab', function(e) {
       break;
   }
 });
+
+// Setup onSubmit handler
+window.onload = function() {
+  var form = document.getElementById("main_form");
+  form.onsubmit = function() {
+    
+  }
+}
 </script>
