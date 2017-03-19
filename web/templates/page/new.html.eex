@@ -25,7 +25,7 @@
   </ul>
 
   <div class="tab-content">
-    <div>
+    <div> <!-- These fields appear on every tab -->
       <p>
         <br>
         <%= text_input f, :first_name, placeholder: "First Name" %>
@@ -33,7 +33,7 @@
         <%= text_input f, :phone, placeholder: "Phone (optional)" %>
       </p>
       <p>
-        <%= text_input f, :email_address, placeholder: "Email Address" %>
+        <%= text_input f, :email, placeholder: "Email Address" %>
         <%= text_input f, :password, placeholder: "Password" %>
         <%= text_input f, :password, placeholder: "Confirm Password" %>
       </p>
@@ -94,7 +94,7 @@ and aware of
 var old = "#lawyer-sign-up";
 $('a[data-toggle="tab"]').on('shown.bs.tab', function(e) {
   var target = $(e.target).attr("href") // activated tab
-  //alert("You were on the " + old + " tab.\nYou selected the " + target + " tab.")
+  alert("You were on the " + old + " tab.\nYou selected the " + target + " tab.");
   old = target;
 });
 </script>
