@@ -19,9 +19,9 @@
     <li>
       <a href="#firm-sign-up" data-toggle="tab">Firm Sign Up</a>
     </li>
-    <li>
+    <!--<li>
       <a href="#both-sign-up" data-toggle="tab">Lawyer/Firm Sign Up</a>
-    </li>
+    </li>-->
   </ul>
 
   <div class="tab-content">
@@ -59,7 +59,7 @@
         <%= text_input f, :zip, placeholder: "Zip" %>
       </p>
     </div>
-    <div class="tab-pane" id="both-sign-up">
+    <!-- <div class="tab-pane" id="both-sign-up">
       <p>
         <%= text_input f, :bar_id, placeholder: "Bar ID" %>
         <%= text_input f, :bar_state, placeholder: "State Barred In" %>
@@ -77,21 +77,33 @@
         <%= text_input f, :state, placeholder: "State" %>
         <%= text_input f, :zip, placeholder: "Zip" %>
       </p>
-    </div>
+    </div>-->
   </div>
 </div>
 <hr>
-<%= submit "Sign Up", class: "btn btn-primary" %><nbsp>
-<label><input type="checkbox" value=""> Agree to</label>
-<%= link("Terms & Conditions", to: "/terms") %><nbsp>
-and aware of
-<%= link("Privacy Policy", to: "/privacy") %>
 <% end %>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<input type="checkbox" id="accept_terms_privacy"> Accept
+  <%= link "Terms & Conditions", to: "/terms" %> and
+  <%= link "Privacy Policy", to: "/privacy" %></input>
+<br><br>
+<input type="submit" id="signup" value="Sign Up" disabled="disabled" class="btn btn-primary">
+<!-- <%= submit "Sign Up", class: "btn btn-primary", disabled: "disabled", id: "signup" %><nbsp> -->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-<script>
-// Determine which tab was selected
+<script type="text/javascript">
+$(document).ready(function() {
+  $('#accept_terms_privacy').click(
+    function() {
+      if($(this).attr('checked') == false) {
+        $('#signup').attr("disabled", "disabled");
+      } else {
+        $('#signup').removeAttr('disabled');
+      }
+    });
+});
+
 var tabType = "lawyer";
 $('a[data-toggle="tab"]').on('shown.bs.tab', function(e) {
   var target = $(e.target).attr("href") // activated tab
@@ -103,16 +115,8 @@ $('a[data-toggle="tab"]').on('shown.bs.tab', function(e) {
       tabType = "firm";
       break;
     case "#both-sign-up":
-      tabType = "both"
+      tabType = "both";
       break;
   }
 });
-
-// Setup onSubmit handler
-window.onload = function() {
-  var form = document.getElementById("main_form");
-  form.onsubmit = function() {
-    
-  }
-}
 </script>
